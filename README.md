@@ -20,7 +20,7 @@ import { useMutableState } from "react-mutable-state";
 const ALL_ITEMS = ["item1", "item2", "item3"];
 
 const Items = () => {
-  const [favoritedItems, setFavoritedItems] = useMutableState(new Set());
+  const [favoritedItems, setFavoritedItems] = useMutableState(new Set<string>());
 
   return (
     <>
