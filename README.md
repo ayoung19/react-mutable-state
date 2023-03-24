@@ -1,5 +1,41 @@
 # react-mutable-state
 
+## Quickstart
+
+### Installation
+
+```
+npm install react-mutable-state
+
+or
+
+yarn add react-mutable-state
+```
+
+### Full Example
+
+```tsx
+import { useMutableState } from "react-mutable-state";
+
+const ALL_ITEMS = ["item1", "item2", "item3"];
+
+const Items = () => {
+  const [favoritedItems, setFavoritedItems] = useMutableState(new Set());
+
+  return (
+    <>
+      {ALL_ITEMS.map((item) => <button onClick={() => setFavoritedItems((prevState) => {
+        prevState.has(header.column.id) ? prevState.delete(header.column.id) : prevState.add(header.column.id);
+
+        return prevState;
+      }))}>{`${item} ${favoritedItems.has(item) ? "is favorited" : "is not favorited"}`}</button>)}
+    </>
+  ); 
+}
+```
+
+## Example Breakdown
+
 react-mutable-state is just a simple typesafe wrapper around `useState` that lets you conveniently modify mutable objects.
 
 The most common use case of this would be to use a `Set` in local component state. Imagine we stored a set of favorited items like so:
